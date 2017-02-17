@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Drum Kit</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+    <div class="keys">
+    <div data-key="65" class="key">
+      <kbd>A</kbd><br>
+      <span class="sound">CLAP</span>
+    </div>
+    <div data-key="83" class="key">
+      <kbd>S</kbd><br>
+      <span class="sound">HIHAT</span>
+    </div>
+    <div data-key="68" class="key">
+      <kbd>D</kbd><br>
+      <span class="sound">KICK</span>
+    </div>
+    <div data-key="70" class="key">
+      <kbd>F</kbd><br>
+      <span class="sound">OPENHAT</span>
+    </div>
+    <div data-key="71" class="key">
+      <kbd>G</kbd><br>
+      <span class="sound">BOOM</span>
+    </div>
+    <div data-key="72" class="key">
+      <kbd>H</kbd><br>
+      <span class="sound">RIDE</span>
+    </div>
+    <div data-key="74" class="key">
+      <kbd>J</kbd><br>
+      <span class="sound">SNARE</span>
+    </div>
+    <div data-key="75" class="key">
+      <kbd>K</kbd><br>
+      <span class="sound">TOM</span>
+    </div>
+    <div data-key="76" class="key">
+      <kbd>L</kbd><br>
+      <span class="sound">TINK</span>
+    </div>
+  </div>
+
+<script>
+document.body.style.cssText = "textDecoration: none;  background-image: url('http://www.mvaudiogroup.com/wp-content/uploads/2015/01/mixing-desk1.jpg')"
+var elements = document.getElementsByClassName('key');
+var array = Array.prototype.slice.call(elements);
+var letters = document.getElementsByTagName('kbd');
+var array1 = Array.prototype.slice.call(letters);
+var instruments = document.getElementsByClassName('sound');
+var array2 = Array.prototype.slice.call(instruments);
+
+var kC = [65, 83, 68, 70, 71, 72, 74, 75, 76];
+
+function kd(i) {
+    array[i].style.cssText = "border: 3px solid transparent; box-shadow: 0px 0px 2px 2px #FEE009;"
+    array1[i].style.cssText = "font-size: 21px"
+    array2[i].style.cssText = "font-size: 13px"
+}
+
+function ku(j) {
+    array[j].style.cssText = "border-style: solid;"
+    array1[j].style.cssText = "font-size: 20px;"
+    array2[j].style.cssText = "font-size: 12px"
+}
+
+addEventListener("keydown", function(event) {
+            for (var i = 0; i < kC.length; i++) {
+                if (event.keyCode === kC[i]) {
+                    kd(i);
+                }
+            }
+        });
+
+addEventListener("keyup", function(event) {
+                for (var j = 0; j < kC.length; j++) {
+                    if (event.keyCode === kC[j]) {
+                        ku(j);
+                    }
+                }
+            });
+
+         
+            window.addEventListener("keydown", function(e) {
+                var audio1 = new Audio("https://raw.githubusercontent.com/wesbos/JavaScript30/master/01%20-%20JavaScript%20Drum%20Kit/sounds/clap.wav");
+                var audio2 = new Audio("https://raw.githubusercontent.com/wesbos/JavaScript30/master/01%20-%20JavaScript%20Drum%20Kit/sounds/hihat.wav");
+                var audio3 = new Audio("https://raw.githubusercontent.com/wesbos/JavaScript30/master/01%20-%20JavaScript%20Drum%20Kit/sounds/kick.wav");
+                var audio4 = new Audio("https://raw.githubusercontent.com/wesbos/JavaScript30/master/01%20-%20JavaScript%20Drum%20Kit/sounds/openhat.wav");
+                var audio5 = new Audio("https://raw.githubusercontent.com/wesbos/JavaScript30/master/01%20-%20JavaScript%20Drum%20Kit/sounds/boom.wav");
+                var audio6 = new Audio("https://raw.githubusercontent.com/wesbos/JavaScript30/master/01%20-%20JavaScript%20Drum%20Kit/sounds/ride.wav");
+                var audio7 = new Audio("https://raw.githubusercontent.com/wesbos/JavaScript30/master/01%20-%20JavaScript%20Drum%20Kit/sounds/snare.wav");
+                var audio8 = new Audio("https://raw.githubusercontent.com/wesbos/JavaScript30/master/01%20-%20JavaScript%20Drum%20Kit/sounds/tom.wav");
+                var audio9 = new Audio("https://raw.githubusercontent.com/wesbos/JavaScript30/master/01%20-%20JavaScript%20Drum%20Kit/sounds/tink.wav");
+
+                e.keyCode == 65 ? audio1.play() : e.keyCode == "83" ? audio2.play() : e.keyCode == "68" ? audio3.play() :
+                    e.keyCode == "70" ? audio4.play() : e.keyCode == "71" ? audio5.play() : e.keyCode == "72" ? audio6.play() :
+                    e.keyCode == "74" ? audio7.play() : e.keyCode == "75" ? audio8.play() : e.keyCode == "76" ? audio9.play() : ""
+            });
+</script>
+
+
+</body>
+</html>
