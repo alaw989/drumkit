@@ -1,0 +1,26 @@
+.keys {
+  padding-top: 300px;
+  width: 100%;
+  text-align: center;
+}
+
+.key {
+  display: inline-block;
+  padding: 15px;
+  border-style: solid;  
+  margin: 10px;
+  width: 70px;
+}
+
+.key span {
+  font-size: 12px;
+  font-family: tahoma;
+  color: #FFFF00;
+  padding: 0px;
+}
+
+.key kbd {
+  color: white;
+  font-size: 20px; 
+}
+
